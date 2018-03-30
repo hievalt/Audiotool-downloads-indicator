@@ -1,12 +1,16 @@
 {
   "name": "Audiotool downloads indicator",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "manifest_version": 2,
   "description": "Adds an indicator that shows the number of track downloads.",
   "homepage_url": "https://chrome.google.com/webstore/detail/audiotool-downloads-indic/becalleehmlphocdcbickheljcmmhdgd",
   "icons": {
     "128": "icons/arrow.png"
   },
+  "permissions": ["tabs"],
+  "background": {
+        "scripts": ["bg.js"]
+    },
   "web_accessible_resources": ["icons/arrow.png"],
   "default_locale": "en",
   "content_scripts": [{
