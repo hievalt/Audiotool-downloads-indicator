@@ -35,6 +35,19 @@ function isTrackPage() {
     var latestTrackUrl, latestTrackData;
     /* Loop for condition checking */
     var timer = setInterval(function() {
+
+        if (window.location.href.includes('https://www.audiotool.com/user/')) {
+            var reg, userName = window.location.href.split("/user/")[1];
+            $.get("https://api.audiotool.com/user/"+ userName +"/", function(data) {
+                reg = new Date(parseInt($($.parseXML(data)).find("registered").text()));
+                var regYear = reg.getFullYear();
+                var regMonth = ("0" + (reg.getMonth() + 1)).slice(-2);
+                var regDate = ("0" + (reg.getDate() + 1)).slice(-2);
+                reg = regYear + "-" + regMonth + "-" + regDate;
+                
+                document.getElementsByClassName('_registered')[0].innerHTML=reg;
+            });
+        }
         /**
          * [Load XML document from API]
          */
